@@ -7,16 +7,14 @@ import com.note.utils.ArrUtils;
  * 34 704 69 35
  * 287 鸽巢原理 (快慢指针解法)
  * 611
- *
- *
- *
  */
 public class HalfSearch {
     public static void main(String[] args) {
         int[] nums = new int[]{5, 6, 6, 8, 8, 10};
         ArrUtils.print(nums);
-        System.out.println(findFirstPos(nums, 7));
-        System.out.println(findLastPos(nums, 7));
+        System.out.println(findGrTargetFirstPos(nums, 7));
+        System.out.println(findEqTargetLastPos(nums, 7));
+        System.out.println(findSmTargetLastPos(nums, 8));
     }
 
     //有序数组中查找目标值
@@ -43,8 +41,8 @@ public class HalfSearch {
         return rtIdx;
     }
 
-    //有序数组中  查找大于等于目标值第一次出现的下标
-    public static int findFirstPos(int[] nums, int target) {
+    //有序数组中  查找大于等于目标值第一次出现的下标(最左侧位置)
+    public static int findGrTargetFirstPos(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
             return -1;
         }
@@ -68,8 +66,8 @@ public class HalfSearch {
         return -1;
     }
 
-    //有序数组中  查找等于目标值最后一次出现的下标
-    public static int findLastPos(int[] nums, int target) {
+    //有序数组中  查找等于目标值最后一次出现的下标(最左侧位置)
+    public static int findEqTargetLastPos(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
             return -1;
         }
@@ -78,24 +76,71 @@ public class HalfSearch {
         int r = nums.length - 1;
         while (l < r) {
             int mid = (l + r + 1) / 2;
-            if (nums[mid] >= target){
+            if (nums[mid] >= target) {
                 //<mid位置上的数肯定不是最后一次 mid位置上的可能是最后一次的 缩小范围[mid, r]
                 l = mid;
-            }else {
+            } else {
                 //反之 缩小范围[l, mid-1]
                 r = mid - 1;
             }
         }
         //不一定存在, 最后再判断一下
-        if (nums[l] == target){
+        if (nums[l] == target) {
+            return l;
+        }
+        return -1;
+    }
+
+    //有序数组中  查找小于等于目标值最后一次出现的下标 (最右侧位置)
+    public static int findSmTargetLastPos(int[] nums, int target) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+
+        int l = 0;
+        int r = nums.length - 1;
+        while (l < r) {
+            int mid = (l + r + 1) / 2;
+            if (nums[mid] <= target) {
+                //<mid的位置肯定不是最右侧的 mid 可能是最右侧出现的 缩小范围[mid, r]
+                l = mid;
+            } else {
+                //反之缩小范围[l,mid-1]
+                r = mid - 1;
+            }
+        }
+        //不一定存在 在判断一把
+        if (nums[l] <= target) {
             return l;
         }
         return -1;
     }
 
     //无序数组中 查找局部中最小
-    public static int findPartMin(int[] nums, int target){
-        //todo hlp
+    public static int findPartMin(int[] nums, int target) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        if (nums.length == 1 || nums[0] < nums[1]) {
+            return 0;
+        }
+        if (nums[nums.length - 1] < nums[nums.length - 1]) {
+            return nums[nums.length - 1];
+        }
+        int l = 1;
+        int r = nums.length - 2;
+        while (l < r) {
+            int mid = (l + r) / 2;
+            if (nums[mid] > nums[mid-1]){
+                //缩小范围[l, mid-1]
+                r = mid -1;
+            }else if (nums[mid] >nums[mid+1]){
+                //缩小范围[mid+1, r]
+                l = mid +1;
+            }else {
+                return mid;
+            }
+        }
         return 0;
     }
 
