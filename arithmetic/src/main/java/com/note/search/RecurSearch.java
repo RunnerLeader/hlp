@@ -31,46 +31,4 @@ public class RecurSearch {
         int right = process(nums, mid + 1, r);
         return Math.max(left, right);
     }
-
-
-    //求逆序对
-    public static int mergeSort(int[] nums, int l, int r) {
-        if (l == r) {
-            return 0;
-        }
-        int mid = l + (r - l) / 2;
-        int left = mergeSort(nums, l, mid);
-        int right = mergeSort(nums, mid + 1, r);
-        int merged = merge(nums, l, mid, r);
-        return left + right + merged;
-    }
-
-    public static int merge(int[] nums, int l, int mid, int r) {
-        int[] temp = new int[r - l + 1];
-        int left = l;
-        int right = mid + 1;
-
-        int i = 0;
-        int cnt = 0;
-        while (left <= mid && right <= r) {
-            if (nums[left] <= nums[right]) {
-                temp[i++] = nums[left++];
-            } else {
-                cnt += (mid - left + 1);
-                temp[i++] = nums[right++];
-            }
-        }
-        while (left <= mid){
-            temp[i++] = nums[left++];
-        }
-        while (right <= r){
-            temp[i++] = nums[right++];
-        }
-
-        for (i = 0; i < temp.length; i++){
-            nums[l+i] = temp[i];
-        }
-
-        return cnt;
-    }
 }

@@ -3,7 +3,7 @@ package com.note.sort;
 import com.note.utils.ArrUtils;
 
 /**
- * 归并排序  时间复杂度 O(NlogN)
+ * 归并排序  时间复杂度 O(NlogN)  额外空间复杂度O(N)
  * 力扣 51 315 493 50
  */
 public class MergeSort {
