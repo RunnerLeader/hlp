@@ -18,6 +18,9 @@ public class ArrUtils {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = randomNum(maxValue);
         }
+        if (arr.length == 0) {
+            arr = randomArray(maxSize, maxValue);
+        }
         return arr;
     }
 
