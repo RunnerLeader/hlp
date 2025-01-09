@@ -1,4 +1,4 @@
-package com.note.linkedstack;
+package com.note.linked;
 
 public class DoubleEndQueue<T> {
     private LinkedNode<T> tail;

@@ -11,7 +11,7 @@ public class MergeSort {
     public static void main(String[] args) {
         int[] nums = ArrUtils.randomArray(10, 10);
         ArrUtils.print(nums);
-        mergeSort(nums, 0, nums.length - 1);
+        test(nums, 0, nums.length - 1);
         ArrUtils.print(nums);
     }
 
@@ -27,7 +27,7 @@ public class MergeSort {
     }
 
     public static void merge(int[] nums, int l, int mid, int r) {
-        if (nums == null || nums.length == 0){
+        if (nums == null || nums.length == 0) {
             return;
         }
         int[] temp = new int[r - l + 1];
@@ -47,6 +47,14 @@ public class MergeSort {
         for (i = 0; i < temp.length; i++) {
             nums[l + i] = temp[i];
         }
+    }
+
+    public static void test(int[] nums, int l, int r) {
+
+    }
+
+    private static void testMerge(int[] nums, int l, int mid, int r) {
+
     }
 
 }

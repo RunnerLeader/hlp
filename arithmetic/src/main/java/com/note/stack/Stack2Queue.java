@@ -1,4 +1,4 @@
-package com.note.linkedstack;
+package com.note.stack;
 
 import java.util.Stack;
 

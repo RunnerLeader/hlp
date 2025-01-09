@@ -131,13 +131,13 @@ public class HalfSearch {
         int r = nums.length - 2;
         while (l < r) {
             int mid = (l + r) / 2;
-            if (nums[mid] > nums[mid-1]){
+            if (nums[mid] > nums[mid - 1]) {
                 //缩小范围[l, mid-1]
-                r = mid -1;
-            }else if (nums[mid] >nums[mid+1]){
+                r = mid - 1;
+            } else if (nums[mid] > nums[mid + 1]) {
                 //缩小范围[mid+1, r]
-                l = mid +1;
-            }else {
+                l = mid + 1;
+            } else {
                 return mid;
             }
         }

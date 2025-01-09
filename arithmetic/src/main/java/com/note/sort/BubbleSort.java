@@ -7,7 +7,7 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] nums = ArrUtils.randomArray(10, 10);
         ArrUtils.print(nums);
-        sort(nums);
+        test(nums);
         ArrUtils.print(nums);
     }
 
@@ -44,4 +44,17 @@ public class BubbleSort {
     // 综上可以看出 插入排序时间复杂度为 O(n²)  空间复杂度O(1)
     // 且该算法 不受数据状况影响 每一轮都会将无序方向上的所有数两两比较
 
+    public static void test(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return;
+        }
+
+        for (int i = nums.length - 1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    ArrUtils.swap(nums, j, j + 1);
+                }
+            }
+        }
+    }
 }

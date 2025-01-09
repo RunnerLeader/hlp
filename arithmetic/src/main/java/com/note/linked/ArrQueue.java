@@ -1,4 +1,4 @@
-package com.note.linkedstack;
+package com.note.linked;
 
 /**
  * 数组实现队列

@@ -1,9 +1,9 @@
-package com.note.linkedstack;
+package com.note.linked;
 
 /**
- * 链表实现栈
+ * 链表实现队列
  */
-public class LinkedStack<T> {
+public class LinkedQueue<T> {
 
 
     public static void main(String[] args) {
@@ -12,18 +12,18 @@ public class LinkedStack<T> {
 
     private DoubleEndQueue<T> queue;
 
-    public LinkedStack() {
+    public LinkedQueue() {
     }
 
-    public LinkedStack(DoubleEndQueue<T> queue) {
+    public LinkedQueue(DoubleEndQueue<T> queue) {
         this.queue = queue;
     }
 
-    public void push(T val){
+    public void offer(T val){
         queue.addFromTail(val);
     }
 
     public void poll(){
-        queue.popFromTail();
+        queue.popFromHead();
     }
 }

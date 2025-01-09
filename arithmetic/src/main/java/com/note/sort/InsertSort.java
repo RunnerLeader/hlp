@@ -6,7 +6,7 @@ public class InsertSort {
     public static void main(String[] args) {
         int[] nums = ArrUtils.randomArray(10, 10);
         ArrUtils.print(nums);
-        sort(nums);
+        test(nums);
         ArrUtils.print(nums);
     }
 
@@ -16,8 +16,8 @@ public class InsertSort {
         }
         int n = nums.length;
         for (int i = 1; i < n; i++) {
-            for (int j = i-1; j>=0 && nums[j] > nums[j+1]; j--){
-                ArrUtils.swap(nums, j, j+1);
+            for (int j = i - 1; j >= 0 && nums[j] > nums[j + 1]; j--) {
+                ArrUtils.swap(nums, j, j + 1);
             }
         }
     }
@@ -36,4 +36,11 @@ public class InsertSort {
     // 综上可以看出 插入排序时间复杂度为 O(n²)  空间复杂度O(1)
     // 且该算法 比较数据状况影响 最好情况下时间复杂度会进化到O(n)
 
+
+    public static void test(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return;
+        }
+
+    }
 }

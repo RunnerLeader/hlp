@@ -1,4 +1,4 @@
-package com.note.linkedstack;
+package com.note.linked;
 
 import java.util.LinkedList;
 import java.util.Queue;

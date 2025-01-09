@@ -6,7 +6,7 @@ public class SelectSort {
     public static void main(String[] args) {
         int[] nums = ArrUtils.randomArray(10, 10);
         ArrUtils.print(nums);
-        sort(nums);
+        test(nums);
         ArrUtils.print(nums);
     }
 
@@ -20,7 +20,7 @@ public class SelectSort {
             for (int j = i + 1; j < n; j++) {
                 minIdx = nums[j] < nums[minIdx] ? j : minIdx;
             }
-            if (minIdx != i){
+            if (minIdx != i) {
                 ArrUtils.swap(nums, minIdx, i);
             }
         }
@@ -40,4 +40,10 @@ public class SelectSort {
     // 综上可以看出 插入排序时间复杂度为 O(n²)  空间复杂度O(1)
     // 且该算法 不受数据状况影响 每一轮都会与无序方向上的所有数比较
 
+    public static void test(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return;
+        }
+
+    }
 }
