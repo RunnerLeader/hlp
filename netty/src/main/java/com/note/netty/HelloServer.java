@@ -27,7 +27,7 @@ public class HelloServer {
                                 nsc.pipeline().addLast(new StringDecoder());//编码器
                                 //
                                 nsc.pipeline().addLast(new ChannelInboundHandlerAdapter(){
-                                    //才处理读事件
+                                    //处理读事件
                                     @Override
                                     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
                                         System.out.println(msg);
