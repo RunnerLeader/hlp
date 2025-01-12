@@ -18,6 +18,8 @@
     <modules>
         <module>arithmetic</module>
         <module>netty</module>
+        <module>schedule</module>
+        <module>configBus</module>
     </modules>
 
     <properties>
@@ -37,6 +39,10 @@
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>
